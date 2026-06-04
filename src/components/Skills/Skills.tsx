@@ -2,8 +2,8 @@ import type {Props} from './Skills.d';
 import Skill from './Skill/Skill.tsx';
 import spaceDotsImg from '../../assets/high-space-dots.png'
 import purpleLogoImg from '../../assets/purple-logo.png'
-import Square from "../UI/Square/Square.tsx";
-import {SquareSize} from "../UI/Square/Square.d";
+import LargeSquare from "../UI/Squares/LargeSquare/LargeSquare.tsx";
+import SmallSquare from "../UI/Squares/SmallSquare/SmallSquare.tsx";
 
 export default function Skills({skills, isRow}: Props) {
     if (isRow) {
@@ -26,12 +26,13 @@ export default function Skills({skills, isRow}: Props) {
     const rightSkills = skills.slice(3, 5);
 
     return (
-        <div className={'flex items-center justify-between gap-4 w-full'}>
-            <div className={'relative w-2/5'}>
-                <img src={spaceDotsImg} alt={'dots'}/>
-                <img src={spaceDotsImg} alt={'dots'}/>
-                <Square size={SquareSize.large} styles={'top-0'}/>
-                <Square size={SquareSize.small} styles={'bottom-0 right-0'}/>
+        <div className={'flex items-center justify-center lg:justify-between gap-4 w-full'}>
+            <LargeSquare styles={'border-l-0 left-0 hidden md:block'}/>
+            <div className={'hidden lg:block relative w-2/5 h-90'}>
+                <img src={spaceDotsImg} alt={'dots'} className={'absolute top-0 left-0'}/>
+                <img src={spaceDotsImg} alt={'dots'} className={'absolute bottom-2/5 right-10 lg:right-1/5'}/>
+                <LargeSquare styles={'-top-5 right-10'}/>
+                <SmallSquare styles={'bottom-0 right-0'}/>
                 <img src={purpleLogoImg} alt={'logo'} className={'absolute left-0 bottom-0'}/>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
