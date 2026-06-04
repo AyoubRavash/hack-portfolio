@@ -1,0 +1,23 @@
+import Header from "../components/Header.tsx";
+import Quote from "../components/Quote.tsx";
+import Projects from "../components/Projects/Projects.tsx";
+import PROJECTS from "../data/projects.ts";
+import SectionDivider from "../components/UI/SectionDivider/SectionDivider.tsx";
+import Skills from "../components/Skills/Skills.tsx";
+import SKILLS from '../data/skills.ts'
+
+function Home() {
+    return <div className={'flex flex-col items-center justify-center w-full gap-14'}>
+        <Header/>
+        <Quote/>
+        <SectionDivider title={'projects'} hasAll={true} href={'projects'}/>
+        <Projects projects={PROJECTS.slice(-3)}/>
+        <SectionDivider title={'skills'} hasAll={false}/>
+        <div className={'flex items-center justify-between w-full'}>
+            <div className={''}></div>
+            <Skills skills={SKILLS} isRow={false}/>
+        </div>
+    </div>
+}
+
+export default Home;
