@@ -1,6 +1,7 @@
 import headerImg from '../assets/header-image.png'
 import purpleLogoImg from '../assets/purple-logo.png'
 import HighSpaceDotsImg from '../assets/high-space-dots.png'
+import MainButton from "./UI/MainButton/MainButton.tsx";
 
 function Header() {
     return (
@@ -14,10 +15,7 @@ function Header() {
                 <p className={'text-gray'}>
                     He builds reliable and scalable systems and develops scripts and bots
                 </p>
-                <button
-                    className={'hidden lg:block border-2 border-primary pt-2 pb-2 pr-4 pl-4 cursor-pointer hover:bg-primary-light transition-all duration-100'}>
-                    Contact me!!
-                </button>
+                <MainButton text={'Contact me!!'} canHide={true}/>
             </div>
             <div className={'relative'}>
                 <img src={purpleLogoImg} alt={'header logo image'} className={'absolute -z-1 top-15 -left-4'}/>

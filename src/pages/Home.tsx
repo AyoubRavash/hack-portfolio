@@ -5,6 +5,7 @@ import PROJECTS from "../data/projects.ts";
 import SectionDivider from "../components/UI/SectionDivider/SectionDivider.tsx";
 import Skills from "../components/Skills/Skills.tsx";
 import SKILLS from '../data/skills.ts'
+import AboutMe from "../components/AboutMe/AboutMe.tsx";
 
 function Home() {
     return <div className={'flex flex-col items-center justify-center w-full gap-14'}>
@@ -17,6 +18,8 @@ function Home() {
             <div className={''}></div>
             <Skills skills={SKILLS} isRow={false}/>
         </div>
+        <SectionDivider title={'about-me'} hasAll={false}/>
+        <AboutMe/>
     </div>
 }
 
