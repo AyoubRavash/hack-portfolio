@@ -1,5 +1,39 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
+
+@font-face {
+    font-family: 'Fira Code';
+    src: url("./assets/fonts/FiraCode-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Fira Code';
+    src: url("./assets/fonts/FiraCode-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Fira Code';
+    src: url("./assets/fonts/FiraCode-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Fira Code';
+    src: url("./assets/fonts/FiraCode-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Fira Code';
+    src: url("./assets/fonts/FiraCode-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+}
 
 @theme {
     --color-primary: #C778DD;
@@ -12,5 +46,5 @@
 body {
     background-color: var(--color-background);
     color: var(--color-white);
-    font-family: 'Fira Code', monospace;
+    font-family: "Fira Code", monospace;
 }
