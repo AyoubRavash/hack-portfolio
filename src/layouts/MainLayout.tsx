@@ -64,9 +64,15 @@ function MainLayout() {
                 <div className={'hidden sm:flex flex-col items-center justify-center gap-4'}>
                     <p className={'text-xl'}>Media</p>
                     <div className={'flex gap-4 items-center'}>
-                        <img src={githubLogoImg} alt={'Github'} className={'size-6'}/>
-                        <img src={linkedInLogoImg} alt={'LinkedIn'} className={'size-6'}/>
-                        <img src={telegramLogoImg} alt={'Telegram'} className={'size-6'}/>
+                        <Link to={'https://github.com/AyoubRavash'}>
+                            <img src={githubLogoImg} alt={'Github'} className={'size-6'}/>
+                        </Link>
+                        <Link to={'https://www.linkedin.com/in/ayoub-ravash-41752631a/'}>
+                            <img src={linkedInLogoImg} alt={'LinkedIn'} className={'size-6'}/>
+                        </Link>
+                        <Link to={'https://Telegram.me/AyoubRavash'}>
+                            <img src={telegramLogoImg} alt={'Telegram'} className={'size-6'}/>
+                        </Link>
                     </div>
                 </div>
             </div>

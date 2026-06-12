@@ -8,6 +8,9 @@ export const Technologies = {
     MICROSERVICES: "Microservices",
     FASTIFY: "Fastify",
     GRPC: "Grpc",
+    REACT: "React",
+    VITE: 'Vite',
+    TAILDWIND: 'Tailwind CSS',
 } as const;
 
 export type Technologies = typeof Technologies[keyof typeof Technologies];
