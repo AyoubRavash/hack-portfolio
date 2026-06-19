@@ -15,7 +15,7 @@ function Header() {
                 <p className={'text-gray'}>
                     He builds reliable and scalable systems and develops scripts and bots
                 </p>
-                <MainButton text={'Contact me!!'} canHide={true}/>
+                <MainButton text={'Contact me!!'} canHide={true} href={'/'}/>
             </div>
             <div className={'relative'}>
                 <img src={purpleLogoImg} alt={'header logo image'} className={'absolute -z-1 top-15 -left-4'}/>
