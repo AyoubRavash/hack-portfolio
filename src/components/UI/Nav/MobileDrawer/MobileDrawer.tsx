@@ -1,7 +1,11 @@
+import {useState} from "react";
 import type {Props} from './MobileDrawer.d'
 import NavItem from "../NavItem/NavItem.tsx";
+import LangList from "../../LangList/LangList.tsx";
 
-export default function MobileDrawer({isOpen, onClose}: Props) {
+export default function MobileDrawer({isOpen, onClose, onLangChange, currentLang}: Props) {
+    const [langOpen, setLangOpen] = useState(false);
+
     return (
         <>
             {/* Backdrop */}
@@ -44,6 +48,27 @@ export default function MobileDrawer({isOpen, onClose}: Props) {
                     <NavItem text="works" href="works"/>
                     <NavItem text="about-me" href="about-me"/>
                     <NavItem text="contacts" href="contacts"/>
+
+                    {/* Language selector */}
+                    <div className="w-full">
+                        <button
+                            onClick={() => setLangOpen(!langOpen)}
+                            className="flex items-center justify-between w-full text-left"
+                        >
+                            <span className="text-gray">{currentLang.toUpperCase()}</span>
+                            <svg
+                                className={`w-4 h-4 text-gray transition-transform ${langOpen ? 'rotate-180' : ''}`}
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        {langOpen && (
+                            <LangList onChange={onLangChange} isMobile={true}/>
+                        )}
+                    </div>
                 </nav>
             </div>
         </>

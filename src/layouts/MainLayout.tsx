@@ -2,12 +2,24 @@ import {useState} from "react";
 import {Link, Outlet} from "react-router-dom";
 import MobileDrawer from "../components/UI/Nav/MobileDrawer/MobileDrawer.tsx";
 import NavItem from "../components/UI/Nav/NavItem/NavItem.tsx";
-import githubLogoImg from '../assets/icons/github.png'
-import linkedInLogoImg from '../assets/icons/linkedin.png'
-import telegramLogoImg from '../assets/icons/telegram.png'
+import logoImg from '../assets/logo.png'
+import LangList from "../components/UI/LangList/LangList.tsx";
+import MainFooter from "../components/UI/MainFooter.tsx";
 
 function MainLayout() {
     const [drawerOpen, setDrawerOpen] = useState(false);
+    const [langDropdownOpen, setLangDropdownOpen] = useState(false);
+    const [currentLang, setCurrentLang] = useState(() => {
+        return localStorage.getItem('lang') || 'en';
+    });
+
+    const handleLangChange = (lang: string) => {
+        console.log('Language changed to:', lang);
+        localStorage.setItem('lang', lang);
+        setCurrentLang(lang);
+        setLangDropdownOpen(false);
+        window.location.reload();
+    };
 
     return (
         <div className={'w-full h-full'}>
@@ -26,6 +38,29 @@ function MainLayout() {
                         <NavItem text="works" href="works"/>
                         <NavItem text="about-me" href="about-me"/>
                         <NavItem text="contacts" href="contacts"/>
+
+                        {/* Language dropdown */}
+                        <div className="relative">
+                            <button
+                                onClick={() => setLangDropdownOpen(!langDropdownOpen)}
+                                className="flex items-center gap-1 px-3 py-2 transition-colors cursor-pointer text-gray hover:text-white"
+                            >
+                                <span>{currentLang.toUpperCase()}</span>
+                                <svg
+                                    className={`w-4 h-4 transition-transform ${langDropdownOpen ? 'rotate-180' : ''}`}
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                          d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </button>
+
+                            {langDropdownOpen && (
+                                <LangList onChange={handleLangChange} isMobile={false}/>
+                            )}
+                        </div>
                     </nav>
 
                     {/* Hamburger (mobile only) */}
@@ -43,46 +78,17 @@ function MainLayout() {
                 <Outlet/>
 
                 {/* Mobile drawer */}
-                <MobileDrawer isOpen={drawerOpen} onClose={() => setDrawerOpen(false)}/>
+                <MobileDrawer
+                    isOpen={drawerOpen}
+                    onClose={() => setDrawerOpen(false)}
+                    onLangChange={handleLangChange}
+                    currentLang={currentLang}
+                />
             </div>
             <div className={'w-full h-px bg-gray mt-30'}></div>
-
-            <div className={'flex items-center justify-center sm:justify-between mx-auto w-10/12 my-10'}>
-                <div className={'flex flex-col items-start justify-center gap-4'}>
-                    <div className={'flex items-center gap-4'}>
-                        <div className={'flex items-center gap-2'}>
-                            <img src={logoImg} alt={'logo'}/>
-                            <Link to=".." className="uppercase font-semibold text-nowrap">
-                                Ayoub Ravash
-                            </Link>
-                        </div>
-                        <Link to={'mailto:ayoubravash@gmail.com'}
-                              className={'text-gray text-xs sm:text-sm'}>ayoubravash@gmail.com</Link>
-                    </div>
-                    <p className={'text-sm'}>Software engineer and full-stack developer</p>
-                </div>
-                <div className={'hidden sm:flex flex-col items-center justify-center gap-4'}>
-                    <p className={'text-xl'}>Media</p>
-                    <div className={'flex gap-4 items-center'}>
-                        <Link to={'https://github.com/AyoubRavash'}>
-                            <img src={githubLogoImg} alt={'Github'} className={'size-6'}/>
-                        </Link>
-                        <Link to={'https://www.linkedin.com/in/ayoub-ravash-41752631a/'}>
-                            <img src={linkedInLogoImg} alt={'LinkedIn'} className={'size-6'}/>
-                        </Link>
-                        <Link to={'https://Telegram.me/AyoubRavash'}>
-                            <img src={telegramLogoImg} alt={'Telegram'} className={'size-6'}/>
-                        </Link>
-                    </div>
-                </div>
-            </div>
-
-            <p className={'text-gray mb-5 w-full text-center text-sm'}>© Copyright 2026. Made by Ayoub</p>
+            <MainFooter/>
         </div>
-
     );
 }
-
-import logoImg from '../assets/logo.png'
 
 export default MainLayout;
