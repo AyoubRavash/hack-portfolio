@@ -9,11 +9,17 @@ export const LANGUAGES = {
     FA: 'fa',
 } as const
 
+const PAGE_TITLES = {
+    [LANGUAGES.EN]: 'Ayoub Ravash',
+    [LANGUAGES.FA]: 'ایوب راوش',
+} as const
+
 const updateDocumentLanguage = (language: string) => {
     const normalizedLanguage = language.startsWith(LANGUAGES.FA) ? LANGUAGES.FA : LANGUAGES.EN
 
     document.documentElement.lang = normalizedLanguage
     document.documentElement.dir = normalizedLanguage === LANGUAGES.FA ? 'rtl' : 'ltr'
+    document.title = PAGE_TITLES[normalizedLanguage]
 }
 
 i18n
