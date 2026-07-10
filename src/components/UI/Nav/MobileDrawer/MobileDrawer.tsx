@@ -1,9 +1,11 @@
 import {useState} from "react";
+import {useTranslation} from "react-i18next";
 import type {Props} from './MobileDrawer.d'
 import NavItem from "../NavItem/NavItem.tsx";
 import LangList from "../../LangList/LangList.tsx";
 
 export default function MobileDrawer({isOpen, onClose, onLangChange, currentLang}: Props) {
+    const {t} = useTranslation();
     const [langOpen, setLangOpen] = useState(false);
 
     return (
@@ -44,10 +46,10 @@ export default function MobileDrawer({isOpen, onClose, onLangChange, currentLang
 
                 {/* Navigation links – stacked vertically */}
                 <nav className="flex flex-col items-start gap-4 p-6">
-                    <NavItem text="home" href=""/>
-                    <NavItem text="works" href="works"/>
-                    <NavItem text="about-me" href="about-me"/>
-                    <NavItem text="contacts" href="contacts"/>
+                    <NavItem text={t('nav.home')} href=""/>
+                    <NavItem text={t('nav.works')} href="works"/>
+                    <NavItem text={t('nav.aboutMe')} href="about-me"/>
+                    <NavItem text={t('nav.contacts')} href="contacts"/>
 
                     {/* Language selector */}
                     <div className="w-full">

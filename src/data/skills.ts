@@ -2,24 +2,24 @@ import type {SkillModel} from '../components/Skills/Skill/Skill.d'
 
 const SKILLS: SkillModel[] = [
     {
-        title: 'Languages',
-        description: 'JavaScript TypeScript Python Go'
+        title: 'skills.languages.title',
+        description: 'skills.languages.description'
     },
     {
-        title: 'Tools',
-        description: 'Git Linux Docker'
+        title: 'skills.tools.title',
+        description: 'skills.tools.description'
     },
     {
-        title: 'Other',
-        description: 'HTML CSS REST'
+        title: 'skills.other.title',
+        description: 'skills.other.description'
     },
     {
-        title: 'Databases',
-        description: 'PostgreSQL MySQL MongoDB Redis'
+        title: 'skills.databases.title',
+        description: 'skills.databases.description'
     },
     {
-        title: 'Frameworks',
-        description: 'Node.js Nest.js React.js Next.js'
+        title: 'skills.frameworks.title',
+        description: 'skills.frameworks.description'
     },
 ]
 

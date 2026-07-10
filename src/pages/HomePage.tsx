@@ -12,16 +12,16 @@ function HomePage() {
     return <div className={'flex flex-col items-center justify-center w-full gap-14'}>
         <Header/>
         <Quote/>
-        <SectionDivider title={'projects'} hasAll={true} hasLine={true} href={'projects'}/>
+        <SectionDivider title={'sections.projects'} hasAll={true} hasLine={true} href={'projects'}/>
         <Projects projects={PROJECTS.slice(-3)}/>
-        <SectionDivider title={'skills'} hasAll={false} hasLine={true}/>
+        <SectionDivider title={'sections.skills'} hasAll={false} hasLine={true}/>
         <div className={'flex items-center justify-between w-full'}>
             <div className={''}></div>
             <Skills skills={SKILLS} isRow={false}/>
         </div>
-        <SectionDivider title={'about-me'} hasAll={false} hasLine={true}/>
+        <SectionDivider title={'sections.aboutMe'} hasAll={false} hasLine={true}/>
         <AboutMe hasMore={true}/>
-        <SectionDivider title={'contacts'} hasAll={false} hasLine={true}/>
+        <SectionDivider title={'sections.contacts'} hasAll={false} hasLine={true}/>
         <Contacts/>
     </div>
 }

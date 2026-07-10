@@ -7,11 +7,11 @@ import LargeSquare from "../components/UI/Squares/LargeSquare/LargeSquare.tsx";
 
 function AboutMePage() {
     return <div className={' flex flex-col gap-10'}>
-        <PageTitle title={'about-me'} description={'who am i?'}/>
+        <PageTitle title={'pageTitles.aboutMe.title'} description={'pageTitles.aboutMe.description'}/>
         <LargeSquare styles={'right-0 border-r-0 top-50'}/>
         <AboutMe hasMore={false}/>
         <LargeSquare styles={'left-0 border-l-0 top-150'}/>
-        <SectionDivider title={'skills'} hasAll={false} hasLine={false}/>
+        <SectionDivider title={'sections.skills'} hasAll={false} hasLine={false}/>
         <Skills skills={SKILLS} isRow={true}/>
     </div>
 }

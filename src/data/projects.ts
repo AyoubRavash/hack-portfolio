@@ -9,22 +9,22 @@ const PROJECTS: ProjectModel[] = [
     {
         id: v7(),
         image: hackPortfolioImg,
-        title: 'Portfolio',
-        description: 'My professional portfolio',
+        title: 'projects.portfolio.title',
+        description: 'projects.portfolio.description',
         technologies: [Technologies.REACT, Technologies.VITE, Technologies.TAILDWIND]
     },
     {
         id: v7(),
         image: nestImg,
-        title: "Legal Advisor",
-        description: "Semi microservice system",
+        title: 'projects.legalAdvisor.title',
+        description: 'projects.legalAdvisor.description',
         technologies: [Technologies.GRPC, Technologies.NESTJS, Technologies.MONGODB, Technologies.MICROSERVICES]
     },
     {
         id: v7(),
         image: expressImg,
-        title: 'Digital Manager',
-        description: 'Employees attendance manager',
+        title: 'projects.digitalManager.title',
+        description: 'projects.digitalManager.description',
         technologies: [Technologies.EXPRESSJS, Technologies.MYSQL]
     }
 ]

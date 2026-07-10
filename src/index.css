@@ -2,37 +2,66 @@
 
 @font-face {
     font-family: 'Fira Code';
-    src: url("./assets/fonts/FiraCode-Regular.ttf") format("truetype");
+    src: url("assets/fonts/FiraCode/FiraCode-Regular.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Fira Code';
-    src: url("./assets/fonts/FiraCode-Bold.ttf") format("truetype");
+    src: url("assets/fonts/FiraCode/FiraCode-Bold.ttf") format("truetype");
     font-weight: bold;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Fira Code';
-    src: url("./assets/fonts/FiraCode-SemiBold.ttf") format("truetype");
+    src: url("assets/fonts/FiraCode/FiraCode-SemiBold.ttf") format("truetype");
     font-weight: 600;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Fira Code';
-    src: url("./assets/fonts/FiraCode-Medium.ttf") format("truetype");
+    src: url("assets/fonts/FiraCode/FiraCode-Medium.ttf") format("truetype");
     font-weight: 500;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Fira Code';
-    src: url("./assets/fonts/FiraCode-Light.ttf") format("truetype");
+    src: url("assets/fonts/FiraCode/FiraCode-Light.ttf") format("truetype");
     font-weight: 300;
     font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IranSans';
+    src: url("assets/fonts/IranSans/IRANSans.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IranSans';
+    src: url("assets/fonts/IranSans/IRANSans_Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IranSans';
+    src: url("assets/fonts/IranSans/IRANSans_Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
 }
 
 @theme {
@@ -43,8 +72,16 @@
     --color-white: #FFFFFF;
 }
 
+:root {
+    --app-font-family: "Fira Code", monospace;
+}
+
+html[lang="fa"] {
+    --app-font-family: "IranSans", sans-serif;
+}
+
 body {
     background-color: var(--color-background);
     color: var(--color-white);
-    font-family: "Fira Code", monospace;
+    font-family: var(--app-font-family);
 }
