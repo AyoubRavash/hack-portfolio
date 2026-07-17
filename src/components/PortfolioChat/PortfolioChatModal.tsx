@@ -11,6 +11,16 @@ const getFocusableElements = (container: HTMLElement) => (
     ))
 );
 
+const renderBoldText = (content: string) => {
+    const parts = content.split(/(\*\*[^*\n]+?\*\*)/g);
+
+    return parts.map((part, index) => (
+        part.startsWith("**") && part.endsWith("**")
+            ? <strong key={index}>{part.slice(2, -2)}</strong>
+            : part
+    ));
+};
+
 export default function PortfolioChatModal({isOpen, onClose}: Props) {
     const {t, i18n} = useTranslation();
     const dialogRef = useRef<HTMLDivElement>(null);
@@ -99,7 +109,7 @@ export default function PortfolioChatModal({isOpen, onClose}: Props) {
                 language: i18n.resolvedLanguage || i18n.language,
                 messages: conversation.map(({role, content}) => ({role, content})),
             });
-
+            
             setMessages((currentMessages) => [
                 ...currentMessages,
                 {id: Date.now() + 1, role: "assistant", content: answer},
@@ -209,7 +219,9 @@ export default function PortfolioChatModal({isOpen, onClose}: Props) {
                                                 : "border-gray bg-black/10 text-gray"
                                         } ${isPersian ? "text-right" : "text-left"}`}
                                     >
-                                        {message.content}
+                                        {message.role === "assistant"
+                                            ? renderBoldText(message.content)
+                                            : message.content}
                                     </div>
                                 </div>
                             ))}
