@@ -1,4 +1,20 @@
-# React + TypeScript + Vite
+# Ayoub Ravash Portfolio
+
+## Portfolio assistant
+
+The AI portfolio guide uses the installed `openai` package and is grounded in the existing localized projects, skills, biography, and contact information.
+
+Create a local `.env` file from `.env.example` and provide:
+
+```env
+OPEN_AI_BASE_URL=https://api.openai.com/v1
+OPEN_AI_API_KEY=your-api-key
+OPEN_AI_MODEL=your-model
+```
+
+### Security note
+
+This is a client-only Vite application deployed as a static site, so it has no server route that can protect an API key. The current integration uses the OpenAI SDK's browser opt-in and Vite injects these variables into the built client bundle. Do not deploy a privileged or unrestricted production API key this way. For production, move the OpenAI call to a serverless function or backend route and keep `OPEN_AI_API_KEY` there; expose only that route to the browser.
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

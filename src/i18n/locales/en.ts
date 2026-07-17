@@ -21,6 +21,25 @@ const en = {
         readMore: 'Read more ->',
         viewAll: 'View all ~~>',
     },
+    chat: {
+        askAi: 'Ask AI',
+        title: 'Ask Ayoub’s AI',
+        subtitle: 'Ask about projects, skills, experience, or how to get in touch.',
+        close: 'Close chat',
+        emptyState: 'I’m here to help you explore Ayoub’s work and professional background. Choose a question or write your own.',
+        placeholder: 'Ask about Ayoub’s work...',
+        send: 'Send',
+        sending: 'Sending',
+        thinking: 'Thinking...',
+        enterHint: 'Press Enter to send · Shift + Enter for a new line',
+        error: 'I’m sorry, something went wrong. Please try again, or contact Ayoub directly through the contacts page.',
+        suggestions: {
+            projects: 'Tell me about your projects',
+            skills: 'What skills do you have?',
+            contact: 'How can I contact you?',
+            technologies: 'Which technologies do you use?',
+        },
+    },
     pageTitles: {
         aboutMe: {
             title: 'about-me',

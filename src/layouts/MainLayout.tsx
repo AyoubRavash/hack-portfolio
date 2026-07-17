@@ -6,10 +6,12 @@ import NavItem from "../components/UI/Nav/NavItem/NavItem.tsx";
 import logoImg from '../assets/logo.png'
 import LangList from "../components/UI/LangList/LangList.tsx";
 import MainFooter from "../components/UI/MainFooter.tsx";
+import PortfolioChatModal from "../components/PortfolioChat/PortfolioChatModal.tsx";
 
 function MainLayout() {
     const {t, i18n} = useTranslation();
     const [drawerOpen, setDrawerOpen] = useState(false);
+    const [chatOpen, setChatOpen] = useState(false);
     const [langDropdownOpen, setLangDropdownOpen] = useState(false);
     const [currentLang, setCurrentLang] = useState(i18n.resolvedLanguage || i18n.language || 'en');
 
@@ -36,6 +38,16 @@ function MainLayout() {
                         <NavItem text={t('nav.works')} href="works"/>
                         <NavItem text={t('nav.aboutMe')} href="about-me"/>
                         <NavItem text={t('nav.contacts')} href="contacts"/>
+                        <button
+                            onClick={() => setChatOpen(true)}
+                            className="inline-flex items-center gap-2 border border-primary px-3 py-2 text-xs text-primary transition-colors hover:bg-primary hover:text-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                            aria-haspopup="dialog"
+                        >
+                            <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/>
+                            </svg>
+                            {t("chat.askAi")}
+                        </button>
 
                         {/* Language dropdown */}
                         <div className="relative">
@@ -81,7 +93,12 @@ function MainLayout() {
                     onClose={() => setDrawerOpen(false)}
                     onLangChange={handleLangChange}
                     currentLang={currentLang}
+                    onOpenChat={() => {
+                        setDrawerOpen(false);
+                        setChatOpen(true);
+                    }}
                 />
+                <PortfolioChatModal isOpen={chatOpen} onClose={() => setChatOpen(false)}/>
             </div>
             <div className={'w-full h-px bg-gray mt-30'}></div>
             <MainFooter/>
