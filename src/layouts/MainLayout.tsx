@@ -40,7 +40,7 @@ function MainLayout() {
                         <NavItem text={t('nav.contacts')} href="contacts"/>
                         <button
                             onClick={() => setChatOpen(true)}
-                            className="inline-flex items-center gap-2 border border-primary px-3 py-2 text-xs text-primary transition-colors hover:bg-primary hover:text-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                            className="inline-flex cursor-pointer items-center gap-2 border border-primary px-3 py-2 text-xs text-primary transition-colors hover:bg-primary hover:text-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                             aria-haspopup="dialog"
                         >
                             <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">

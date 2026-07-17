@@ -164,7 +164,7 @@ export default function PortfolioChatModal({isOpen, onClose}: Props) {
                     </div>
                     <button
                         onClick={onClose}
-                        className="ml-4 inline-flex size-9 shrink-0 items-center justify-center border border-transparent text-gray transition-colors hover:border-gray hover:text-white focus-visible:border-primary focus-visible:outline-none"
+                        className="ml-4 inline-flex size-9 shrink-0 cursor-pointer items-center justify-center border border-transparent text-gray transition-colors hover:border-gray hover:text-white focus-visible:border-primary focus-visible:outline-none"
                         aria-label={t("chat.close")}
                     >
                         <svg className="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -184,7 +184,7 @@ export default function PortfolioChatModal({isOpen, onClose}: Props) {
                                     <button
                                         key={question}
                                         onClick={() => void submitQuestion(question)}
-                                        className={`border border-gray px-3 py-3 text-xs leading-5 text-gray transition-all hover:border-primary hover:bg-primary-light hover:text-white focus-visible:border-primary focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 ${
+                                        className={`cursor-pointer border border-gray px-3 py-3 text-xs leading-5 text-gray transition-all hover:border-primary hover:bg-primary-light hover:text-white focus-visible:border-primary focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 ${
                                             isPersian ? "text-right" : "text-left"
                                         }`}
                                         disabled={isSending}
@@ -195,17 +195,20 @@ export default function PortfolioChatModal({isOpen, onClose}: Props) {
                             </div>
                         </div>
                     ) : (
-                        <div className="space-y-4">
+                        <div className="space-y-4" dir="ltr">
                             {messages.map((message) => (
                                 <div
                                     key={message.id}
                                     className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
                                 >
-                                    <div className={`max-w-[88%] border px-4 py-3 text-sm leading-6 ${
-                                        message.role === "user"
-                                            ? "border-primary bg-primary-light text-white"
-                                            : "border-gray bg-black/10 text-gray"
-                                    }`}>
+                                    <div
+                                        dir={isPersian ? "rtl" : "ltr"}
+                                        className={`max-w-[88%] whitespace-pre-wrap break-words border px-4 py-3 text-sm leading-6 ${
+                                            message.role === "user"
+                                                ? "border-primary bg-primary-light text-white"
+                                                : "border-gray bg-black/10 text-gray"
+                                        } ${isPersian ? "text-right" : "text-left"}`}
+                                    >
                                         {message.content}
                                     </div>
                                 </div>
@@ -213,6 +216,7 @@ export default function PortfolioChatModal({isOpen, onClose}: Props) {
                             {isSending && (
                                 <div className="flex justify-start" aria-live="polite">
                                     <div
+                                        dir={isPersian ? "rtl" : "ltr"}
                                         className="flex items-center gap-2 border border-gray bg-black/10 px-4 py-3 text-sm text-gray">
                                         <span className="size-2 animate-pulse bg-primary"/>
                                         {t("chat.thinking")}
@@ -241,7 +245,7 @@ export default function PortfolioChatModal({isOpen, onClose}: Props) {
                         <button
                             onClick={handleSubmit}
                             disabled={!input.trim() || isSending}
-                            className="inline-flex h-10 items-center gap-2 border border-primary bg-primary px-3 text-xs font-semibold text-background transition-colors hover:bg-white disabled:cursor-not-allowed disabled:border-gray disabled:bg-transparent disabled:text-gray focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                            className="inline-flex h-10 cursor-pointer items-center gap-2 border border-primary bg-primary px-3 text-xs font-semibold text-background transition-colors hover:bg-white disabled:cursor-not-allowed disabled:border-gray disabled:bg-transparent disabled:text-gray focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                         >
                             {isSending ? t("chat.sending") : t("chat.send")}
                             <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"
